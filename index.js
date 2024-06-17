@@ -6,6 +6,11 @@ app.use(cors());
 const todo = require('./todo');
 require('./mongo');
 
+
+app.get('/', (req, res) => {
+    res.send("<h1>Welcome to Todos App</h1>")
+})
+
 app.get('/todos', async (req, res) => {
     let todoData = await todo.find({})
     res.send(todoData)
