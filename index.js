@@ -35,7 +35,7 @@ app.put('/updatetodo/:id', async (req, res) => {
 app.delete('/deletetodo/:id', async (req, res) => {
     let id = req.params.id;
     let data = await todo.deleteOne({_id : id});
-    res.send(`Deleted ${data}`);
+    res.send(`Deleted ${id}`);
 })
 
 app.listen(3000, () => {
