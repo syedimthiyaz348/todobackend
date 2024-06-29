@@ -32,6 +32,12 @@ app.put('/updatetodo/:id', async (req, res) => {
     res.send(`updated with ${result}`);
 })
 
+app.delete('/deletetodo/:id', async (req, res) => {
+    let id = req.params.id;
+    let data = await todo.deleteOne({_id : id});
+    res.send(`Deleted ${data}`);
+})
+
 app.listen(3000, () => {
     console.log("Server Started")
 })
