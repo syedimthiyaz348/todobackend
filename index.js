@@ -17,9 +17,9 @@ app.get('/todos', async (req, res) => {
 })
 
 app.post('/addtodo', async (req, res)=> {
-    let todoData = await todo(req.body)
+    let todoData = await todo({todo : req.body.todo, "status": "pending"})
     let result = await todoData.save();
-    res.send(result);
+    res.send(todoData);
 })
 
 app.put('/updatetodo/:id', async (req, res) => {
